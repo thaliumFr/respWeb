@@ -1,0 +1,145 @@
+:root {
+  --gap: 1rem;
+}
+
+body,
+html,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+h1 {
+  text-align: center;
+  align-content: center;
+  height: 100%;
+  font-size: 3.5em;
+  margin: 0;
+  color: white;
+  background-image: linear-gradient(0deg, rgba(11, 13, 43, 0.5803921569), rgba(43, 44, 68, 0.5803921569));
+  -webkit-backdrop-filter: saturate(60%) blur(2px) brightness(30%);
+          backdrop-filter: saturate(60%) blur(2px) brightness(30%);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto 90svh 100px min-content auto max-content;
+  grid-template-areas: "nav nav" "header header" "offer offer" "tags tags" "main main" "footer footer";
+  background-color: #040513;
+  color: white;
+}
+.gridContainer header {
+  grid-area: header;
+  background-image: url(Images/Hogwarts.png);
+  background-position: center;
+  background-size: cover;
+  padding: 0;
+}
+.gridContainer footer {
+  grid-area: footer;
+}
+.gridContainer .tags {
+  grid-area: tags;
+  overflow-x: scroll;
+}
+.gridContainer .tags a {
+  text-wrap: nowrap;
+}
+.gridContainer .tags h2 {
+  display: none;
+}
+.gridContainer .content {
+  grid-area: main;
+}
+.gridContainer .offer {
+  grid-area: offer;
+}
+.gridContainer .offer img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.gridContainer > * {
+  padding: var(--gap);
+}
+
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+}
+.games div {
+  max-height: 25vh;
+  min-width: 250px;
+  aspect-ratio: 16/9;
+}
+.games div img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: var(--gap);
+}
+
+.button {
+  border-radius: 3px;
+  padding: var(--gap);
+  text-decoration: none;
+  color: white;
+  background-color: #0b0d2b;
+}
+.button.selected {
+  background-color: #2b2c44;
+}
+
+hr {
+  background-color: #0b0d2b;
+  height: 1px;
+  width: 100%;
+}
+
+@media screen and (min-width: 500px) {
+  .gridContainer {
+    grid-template-columns: 150px auto;
+    grid-template-rows: auto 90svh 30vh auto 100px;
+    grid-template-areas: "nav nav" "header header" "offer offer" "tags main" "footer footer";
+  }
+  .tags {
+    flex-direction: column;
+    justify-content: start;
+    overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .gridContainer {
+    grid-template-columns: 150px auto;
+    grid-template-rows: auto 90svh 30vh auto 100px;
+    grid-template-areas: "nav nav" "header header" "tags offer" "tags main" "footer footer";
+  }
+  .tags {
+    flex-direction: column;
+    justify-content: start;
+    overflow-x: auto;
+  }
+  .tags h2 {
+    display: block;
+  }
+}

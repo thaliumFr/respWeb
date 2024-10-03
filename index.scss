@@ -1,0 +1,184 @@
+:root {
+	--gap: 1rem;
+}
+
+body,
+html,
+::after,
+::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+	font-family: monospace;
+}
+
+h1 {
+	text-align: center;
+	align-content: center;
+	height: 100%;
+
+	font-size: 3.5em;
+
+	margin: 0;
+	color: white;
+
+	background-image: linear-gradient(0deg, #0b0d2b94, #2b2c4494);
+	backdrop-filter: saturate(60%) blur(2px) brightness(30%);
+}
+
+.gridContainer {
+	display: grid;
+	// phone
+	grid-template-columns: auto;
+	grid-template-rows: auto 90svh 100px min-content auto max-content;
+	grid-template-areas:
+		"nav nav"
+		"header header"
+		"offer offer"
+		"tags tags"
+		"main main"
+		"footer footer";
+
+	background-color: #040513;
+	color: white;
+
+	header {
+		grid-area: header;
+		background-image: url(Images/Hogwarts.png);
+		background-position: center;
+		background-size: cover;
+		padding: 0;
+	}
+
+	footer {
+		grid-area: footer;
+	}
+
+	.tags {
+		grid-area: tags;
+		overflow-x: scroll;
+
+		a {
+			text-wrap: nowrap;
+		}
+
+		h2 {
+			display: none;
+		}
+	}
+
+	.content {
+		grid-area: main;
+	}
+
+	.offer {
+		grid-area: offer;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	& > * {
+		padding: var(--gap);
+	}
+}
+
+.games {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--gap);
+
+	div {
+		max-height: 25vh;
+		min-width: 250px;
+		aspect-ratio: 16/9;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			border-radius: 3px;
+			overflow: hidden;
+		}
+	}
+}
+
+.tags {
+	display: flex;
+	flex-direction: row;
+
+	justify-content: space-evenly;
+
+	gap: var(--gap);
+}
+
+.button {
+	border-radius: 3px;
+	padding: var(--gap);
+
+	text-decoration: none;
+	color: white;
+	background-color: #0b0d2b;
+
+	&.selected {
+		background-color: #2b2c44;
+	}
+}
+
+hr {
+	background-color: #0b0d2b;
+	height: 1px;
+	width: 100%;
+}
+
+// tablette
+@media screen and (min-width: 500px) {
+	.gridContainer {
+		grid-template-columns: 150px auto;
+		grid-template-rows: auto 90svh 30vh auto 100px;
+		grid-template-areas:
+			"nav nav"
+			"header header"
+			"offer offer"
+			"tags main"
+			"footer footer";
+	}
+
+	.tags {
+		flex-direction: column;
+		justify-content: start;
+
+		overflow-x: hidden;
+	}
+}
+
+//PC
+@media screen and (min-width: 1200px) {
+	.gridContainer {
+		grid-template-columns: 150px auto;
+		grid-template-rows: auto 90svh 30vh auto 100px;
+		grid-template-areas:
+			"nav nav"
+			"header header"
+			"tags offer"
+			"tags main"
+			"footer footer";
+	}
+
+	.tags {
+		flex-direction: column;
+		justify-content: start;
+
+		overflow-x: auto;
+
+		h2 {
+			display: block;
+		}
+	}
+}
