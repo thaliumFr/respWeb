@@ -59,6 +59,13 @@ h1 {
 		grid-area: tags;
 		overflow-x: scroll;
 
+		// Hide Scrollbar ?
+		// ms-overflow-style: none; /* Internet Explorer 10+ */
+		// scrollbar-width: none; /* Firefox */
+		// &::-webkit-scrollbar {
+		// 	display: none; /* Safari and Chrome */
+		// }
+
 		a {
 			text-wrap: nowrap;
 		}
@@ -79,6 +86,7 @@ h1 {
 			height: 100%;
 			object-fit: cover;
 			object-position: center;
+			border-radius: 3px;
 		}
 	}
 
@@ -148,14 +156,20 @@ hr {
 			"offer offer"
 			"tags main"
 			"footer footer";
-	}
+		.tags {
+			flex-direction: column;
+			justify-content: start;
 
-	.tags {
-		flex-direction: column;
-		justify-content: start;
-
-		overflow-x: hidden;
+			overflow-x: hidden !important;
+			h2 {
+				display: block;
+			}
+		}
 	}
+}
+
+footer {
+	background-color: hsl(236, 65%, 2%);
 }
 
 //PC
@@ -169,16 +183,23 @@ hr {
 			"tags offer"
 			"tags main"
 			"footer footer";
-	}
 
-	.tags {
-		flex-direction: column;
-		justify-content: start;
+		.tags {
+			flex-direction: column;
+			justify-content: start;
 
-		overflow-x: auto;
+			overflow-x: hidden !important;
 
-		h2 {
-			display: block;
+			h2 {
+				display: block;
+			}
 		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.games div {
+		width: 100%;
+		max-height: 30vh;
 	}
 }

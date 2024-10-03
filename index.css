@@ -65,6 +65,7 @@ h1 {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  border-radius: 3px;
 }
 .gridContainer > * {
   padding: var(--gap);
@@ -122,24 +123,37 @@ hr {
     grid-template-rows: auto 90svh 30vh auto 100px;
     grid-template-areas: "nav nav" "header header" "offer offer" "tags main" "footer footer";
   }
-  .tags {
+  .gridContainer .tags {
     flex-direction: column;
     justify-content: start;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+  }
+  .gridContainer .tags h2 {
+    display: block;
   }
 }
+footer {
+  background-color: hsl(236, 65%, 2%);
+}
+
 @media screen and (min-width: 1200px) {
   .gridContainer {
     grid-template-columns: 150px auto;
     grid-template-rows: auto 90svh 30vh auto 100px;
     grid-template-areas: "nav nav" "header header" "tags offer" "tags main" "footer footer";
   }
-  .tags {
+  .gridContainer .tags {
     flex-direction: column;
     justify-content: start;
-    overflow-x: auto;
+    overflow-x: hidden !important;
   }
-  .tags h2 {
+  .gridContainer .tags h2 {
     display: block;
+  }
+}
+@media screen and (max-width: 800px) {
+  .games div {
+    width: 100%;
+    max-height: 30vh;
   }
 }
