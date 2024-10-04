@@ -116,7 +116,7 @@ nav {
 						min-width: 160px;
 						max-height: 0;
 						overflow: hidden;
-						transition: max-height 0.25s ease-in-out; /* Ajout de la transition */
+						transition: max-height 0.25s ease-in-out;
 
 						a {
 							display: block;
@@ -131,7 +131,7 @@ nav {
 					}
 
 					&:hover .dropdownContent {
-						max-height: 200px; /* Taille suffisamment grande pour contenir le contenu */
+						max-height: 200px;
 					}
 				}
 
@@ -238,6 +238,14 @@ h1 {
 	backdrop-filter: saturate(60%) blur(2px) brightness(30%);
 }
 
+html,
+body {
+	font-size: small;
+}
+h2 {
+	font-size: medium;
+}
+
 .gridContainer {
 	display: grid;
 	// phone
@@ -326,11 +334,6 @@ h1 {
 			overflow: hidden;
 		}
 	}
-
-	.elden {
-		img {
-		}
-	}
 }
 
 .tags {
@@ -363,6 +366,13 @@ hr {
 
 // tablette
 @media screen and (min-width: 500px) {
+	html,
+	body {
+		font-size: medium;
+	}
+	h2 {
+		font-size: large;
+	}
 	.gridContainer {
 		grid-template-columns: 150px auto;
 		grid-template-rows: auto 80svh 30vh auto 100px;
